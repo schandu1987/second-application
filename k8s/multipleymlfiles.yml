@@ -7,9 +7,9 @@ spec:
   - name:  multipod1
     image:  nginx
     ports:
-    - containerPort:  80
+    - containerPort: 80
 
   - name: multipod2
     image: nginx
     ports:
-    - containerPort:  80
+    - containerPort: 80
