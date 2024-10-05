@@ -1,0 +1,15 @@
+# Preparing yml file for the POD in the given below format
+#apiversion: # key:  value
+#kind:  #key:  value
+#metadata:  #Dictionary
+#spec:  #Dictionary & list
+apiVersion:  v1
+kind:  Pod
+metadata:
+  name:  firstpod
+spec:
+  containers:
+  - name:  nginx
+    image:  nginx
+    ports:
+    - containerPort:  80
