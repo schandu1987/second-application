@@ -10,6 +10,6 @@ spec:
     - containerPort: 80
 
   - name: multipod2
-    image: nginx
+    image: ssindiri1987/loginpage
     ports:
     - containerPort: 80
