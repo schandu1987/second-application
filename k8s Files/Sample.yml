@@ -2,3 +2,11 @@
 key:  value
 name:  chandu
 city:  hyderabad
+
+# Creatubg pods with dictionary file
+# dictionary is set of prperties
+
+person:
+  name:  chandu
+  city:  hyderabad
+  mobile:  12345
