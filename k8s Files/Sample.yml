@@ -10,3 +10,6 @@ person:
   name:  chandu
   city:  hyderabad
   mobile:  12345
+  hobies:
+   - cooking
+   - cycling
