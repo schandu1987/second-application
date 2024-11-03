@@ -1,1 +1,0 @@
-echo "this is sample script file"
