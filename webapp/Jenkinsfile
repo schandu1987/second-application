@@ -12,9 +12,10 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'cd webapp && sudo docker container run --rm -e SONAR_HOST_URL="http://20.172.187.108:9000" -e SONAR_LOGIN="sqp_cae41e62e13793ff17d58483fb6fb82602fe2b48" -v ".:/usr/src" sonarsource/sonar-scanner-cli -Dsonar.projectKey=lms'
+                sh 'cd webapp && sudo docker container run --rm -e SONAR_HOST_URL="15.206.66.129:9000" -e SONAR_LOGIN="sqa_dbdbafe1b34bf0740ae8bf0e397a00d9b2111d68" -v ".:/usr/src" sonarsource/sonar-scanner-cli -Dsonar.projectKey=lms'
             }
         }
+        /*
         stages {
         stage('Build') {
             steps {
