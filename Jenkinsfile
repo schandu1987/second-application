@@ -29,7 +29,7 @@ agent any
               stage('Deploy') {
                 steps {
                     echo 'Deployment'
-                    sh 'curl -u admin:admin1234 -X GET http://13.234.78.44:8081/repository/LMS/lms.zip --output lms.zip'
+                    sh 'curl -u admin:admin1234 -X GET http://13.234.78.44:8081/repository/LMS/dist-10.zip --output lms.zip'
                     sh 'unzip lms.zip'
                     sh 'sudo cp -r dist/* /var/www/html'
                     echo 'Deployment completed'
