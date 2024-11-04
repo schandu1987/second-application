@@ -1,29 +1,24 @@
 pipeline {
     agent any
-    /*
-    environment {
+        environment {
         // More detail: 
         // https://jenkins.io/doc/book/pipeline/jenkinsfile/#usernames-and-passwords
         NEXUS_CRED = credentials('nexus')
-        
-   }*/
-
-            
+                  
         stage('Test') {
             steps {
                 echo 'Testing..'
                 sh 'cd webapp && sudo docker container run --rm -e SONAR_HOST_URL="13.234.78.44:9000" -e SONAR_LOGIN="sqa_dbdbafe1b34bf0740ae8bf0e397a00d9b2111d68" -v ".:/usr/src" sonarsource/sonar-scanner-cli -Dsonar.projectKey=lms'
             }
         }
-        /*
-        stages {
+              stages {
         stage('Build') {
             steps {
                 echo 'Building..'
                 sh 'cd webapp && npm install && npm run build'
             }
         }
-        /*
+        
         stage('Release') {
             steps {
                 echo 'Release Nexus'
@@ -31,6 +26,6 @@ pipeline {
                 sh 'cd webapp && zip dist-${BUILD_NUMBER}.zip -r dist'
                 sh 'cd webapp && curl -v -u $Username:$Password --upload-file dist-${BUILD_NUMBER}.zip http://20.172.187.108:8081/repository/lms/'
             }
-        } */
+        } 
     }
 }
