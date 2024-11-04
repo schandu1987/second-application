@@ -16,12 +16,13 @@ agent any
                 echo 'Build is completed'
                 }
             }
+
             stage('Release'){
                 steps{
                     echo 'Releaes artifacts'
-                    sh 'zip lms.zip -r dist/*'
-                    sh 'curl -v -u admin:admin1234 --upload-file  lms.zip http://13.234.78.44:8081/repository/LMS/'
-                    echo 'Artifacts successfull'
+                    sh 'rm -rf *.zip'
+                    sh 'cd webapp && zip dist-${BUILD_NUMBER}.zip -r dist'
+                    sh 'cd webapp && curl -v -u admin:admin1234 --upload-file dist-${BUILD_NUMBER}.zip http://13.234.78.44:8081/repository/lms/'
                 }
             }
 
