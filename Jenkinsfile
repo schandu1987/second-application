@@ -31,8 +31,8 @@ agent any
                 steps {
                     echo 'Deployment'
                     sh 'curl -u admin:admin1234 -X GET http://35.154.36.49:8081/repository/LMS/lms-${BUILD_NUMBER}.zip --output lms-${BUILD_NUMBER}.zip && pwd'
-                    
-                    
+                    sh 'unzip /var/lib/jenkins/workspace/lms_analysis_pipe_1/webapp/lms-${BUILD_NUMBER}.zip'
+                    sudo 'cp -r /var/lib/jenkins/workspace/lms_analysis_pipe_1/webapp/* /var/www/html'
                     echo 'Deployment completed'
                     }
 
