@@ -30,7 +30,7 @@ agent any
               stage('Deploy') {
                 steps {
                     echo 'Deployment'
-                    sh 'curl -u admin:admin1234 -X GET http://13.127.0.109:8081/repository/LMS/lms-${BUILD_NUMBER}.zip --output /home/ubuntu/deploy/lms-${BUILD_NUMBER}.zip'
+                    sh 'curl -u admin:admin1234 -X GET http://13.127.0.109:8081/repository/LMS/lms-${BUILD_NUMBER}.zip --output lms-${BUILD_NUMBER}.zip && pwd'
                     
                     
                     echo 'Deployment completed'
