@@ -20,24 +20,9 @@ agent any
             stage('Release'){
                 steps{
                     echo 'Releaes artifacts'
-                    sh 'rm -rf *.zip'
-                    sh 'cd webapp && zip dist-${BUILD_NUMBER}.zip -r dist'
-                    sh 'cd webapp && curl -v -u admin:admin1234 --upload-file dist-${BUILD_NUMBER}.zip http://35.154.36.49:8081/repository/lms/'
-                    echo 'Release completed'
-                }
-            }
-
-              stage('Deploy') {
-                steps {
-                    echo 'Deployment'
-                    sh 'curl -u admin:admin1234 -X GET http://35.154.36.49:8081/repository/LMS/lms-${BUILD_NUMBER}.zip --output lms.zip && pwd'
-                    sh 'unzip lms.zip'
-                    echo 'Deployment completed'
-                    }
-
-                } 
-
-                
+                    sh 'zip lms.zip -r dist/*'
+                    sh 'curl -v -u admin:admin1234 --upload-file  lms.zip http://35.154.36.49:8081/repository/LMS/'
+           
 
         }
     }
