@@ -4,7 +4,7 @@ agent any
         stage('Code Quality') {
             steps {
                 echo 'Sonar Analysis Started'
-                sh 'cd webapp && sudo docker run --rm -e SONAR_HOST_URL="http://13.234.78.44:9000" -v ".:/usr/src" -e  SONAR_TOKEN="sqa_dbdbafe1b34bf0740ae8bf0e397a00d9b2111d68" sonarsource/sonar-scanner-cli -Dsonar.projectKey=lms'
+                sh 'cd webapp && sudo docker run --rm -e SONAR_HOST_URL="http://13.127.0.109:9000" -v ".:/usr/src" -e  SONAR_TOKEN="sqa_dbdbafe1b34bf0740ae8bf0e397a00d9b2111d68" sonarsource/sonar-scanner-cli -Dsonar.projectKey=lms'
                 echo 'Sonar Analysis Completed'
                 }
             }
@@ -21,21 +21,21 @@ agent any
                 steps{
                     echo 'Releaes artifacts'
                     sh 'rm -rf *.zip'
-                    sh 'cd webapp && zip dist-${BUILD_NUMBER}.zip -r dist'
-                    sh 'cd webapp && curl -v -u admin:admin1234 --upload-file dist-${BUILD_NUMBER}.zip http://13.234.78.44:8081/repository/lms/'
+                    sh 'cd webapp && zip lms.zip -r dist/*'
+                    sh 'curl -v -u admin:admin1234 --upload-file  lms.zip http://13.127.0.109:8081/repository/LMS/'
                 }
             }
 
-              stage('Deploy') {
+              /*stage('Deploy') {
                 steps {
                     echo 'Deployment'
-                    sh 'curl -u admin:admin1234 -X GET http://13.234.78.44:8081/repository/LMS/lms.zip --output lms.zip'
+                    sh 'curl -u admin:admin1234 -X GET http://13.127.0.109:8081/repository/LMS/lms.zip --output lms.zip'
                     sh 'unzip lms.zip'
                     sh 'sudo cp -r dist/* /var/www/html'
                     echo 'Deployment completed'
                     }
 
-                } 
+                } */
 
         }
     }
