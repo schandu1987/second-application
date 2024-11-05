@@ -31,7 +31,7 @@ agent any
                 steps {
                     echo 'Deployment'
                     sh 'curl -u admin:admin1234 -X GET http://13.127.0.109:8081/repository/LMS/lms-${BUILD_NUMBER}.zip --output lms-${BUILD_NUMBER}.zip'
-                    sh 'unzip lms-${BUILD_NUMBER}.zip'
+                    
                     
                     echo 'Deployment completed'
                     }
