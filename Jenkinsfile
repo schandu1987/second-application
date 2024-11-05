@@ -22,7 +22,7 @@ agent any
                     echo 'Releaes artifacts'
                     sh 'zip lms.zip -r dist/*'
                     sh 'curl -v -u admin:admin1234 --upload-file  lms.zip http://35.154.36.49:8081/repository/LMS/'
-           
-
-        }
+                   }
+           }
     }
+}
