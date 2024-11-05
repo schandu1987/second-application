@@ -21,8 +21,9 @@ agent any
                 steps{
                     echo 'Releaes artifacts'
                     sh 'rm -rf *.zip'
-                    sh 'cd webapp && zip lms.zip -r dist/*'
-                    sh 'curl -v -u admin:admin1234 --upload-file  lms.zip http://13.127.0.109:8081/repository/LMS/'
+                    sh 'cd webapp && zip dist-${BUILD_NUMBER}.zip -r dist'
+                    sh 'cd webapp && curl -v -u admin:admin1234 --upload-file dist-${BUILD_NUMBER}.zip http://13.127.0.109:8081/repository/lms/'
+                    echo 'Release completed'
                 }
             }
 
